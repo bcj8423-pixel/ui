@@ -64,6 +64,7 @@ const hintToggleBtn = document.getElementById("hintToggle");
 const hintLevelsEl = document.getElementById("hintLevels");
 const hintContentEl = document.getElementById("hintContent");
 const submitBtn = document.getElementById("submitBtn");
+const finishEarlyBtn = document.getElementById("finishEarlyBtn");
 const feedbackEl = document.getElementById("feedback");
 const downloadBtn = document.getElementById("downloadBtn");
 const csvPreviewEl = document.getElementById("csvPreview");
@@ -156,6 +157,12 @@ hintLevelsEl.addEventListener("click", (event) => {
   openHintLevel(level);
 });
 
+const showCompletion = () => {
+  trialEl.classList.add("hidden");
+  completeEl.classList.remove("hidden");
+  updateCsvPreview();
+};
+
 submitBtn.addEventListener("click", () => {
   const selected = optionsEl.querySelector("input[name='option']:checked");
   if (!selected) {
@@ -186,10 +193,12 @@ submitBtn.addEventListener("click", () => {
   if (state.trialIndex < state.shuffledTrials.length) {
     setTimeout(startTrial, 500);
   } else {
-    trialEl.classList.add("hidden");
-    completeEl.classList.remove("hidden");
-    updateCsvPreview();
+    showCompletion();
   }
+});
+
+finishEarlyBtn.addEventListener("click", () => {
+  showCompletion();
 });
 
 const buildCsv = () => {
