@@ -188,7 +188,7 @@ submitBtn.addEventListener("click", () => {
   } else {
     trialEl.classList.add("hidden");
     completeEl.classList.remove("hidden");
-    csvPreviewEl.textContent = buildCsv();
+    updateCsvPreview();
   }
 });
 
@@ -216,8 +216,14 @@ const buildCsv = () => {
   return lines.join("\n");
 };
 
+const updateCsvPreview = () => {
+  const csv = buildCsv();
+  csvPreviewEl.textContent = csv || "응답이 아직 없습니다.";
+};
+
 const downloadCsv = () => {
   const csv = buildCsv();
+  updateCsvPreview();
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");

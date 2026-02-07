@@ -158,4 +158,11 @@ input[type="text"] {
   border-radius: 12px;
   overflow-x: auto;
   font-size: 12px;
+  white-space: pre-wrap;
+  min-height: 120px;
+}
+
+.csv-title {
+  margin-top: 16px;
+  margin-bottom: 8px;
 }
