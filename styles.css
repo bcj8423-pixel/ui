@@ -1,0 +1,168 @@
+:root {
+  color-scheme: light;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  background: #f5f7fb;
+  color: #1f2a37;
+}
+
+body {
+  margin: 0;
+  padding: 32px 16px;
+}
+
+.container {
+  max-width: 840px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+header h1 {
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  margin: 0;
+  color: #4b5563;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+.hidden {
+  display: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+input[type="text"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+  font-size: 16px;
+}
+
+.primary,
+.secondary {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.secondary {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.note {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.trial-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.options {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  background: #f8fafc;
+}
+
+.option input {
+  accent-color: #2563eb;
+}
+
+.hint-panel {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.hint-levels {
+  border: 1px dashed #cbd5f5;
+  border-radius: 12px;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+  background: #f8fafc;
+}
+
+.hint-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hint-btn {
+  border-radius: 999px;
+  border: 1px solid #bfdbfe;
+  background: white;
+  color: #1d4ed8;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.hint-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.hint-content {
+  min-height: 48px;
+  color: #1e293b;
+  font-size: 15px;
+}
+
+.feedback {
+  font-weight: 600;
+}
+
+.csv-preview {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 16px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 12px;
+  white-space: pre-wrap;
+  min-height: 120px;
+}
+
+.csv-title {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}

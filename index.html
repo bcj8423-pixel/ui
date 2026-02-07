@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>새로운 학습 플랫폼 시범 평가</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>새로운 학습 플랫폼 시범 평가</h1>
+        <p class="subtitle">
+          본 실험에서는 학습 문항을 해결하면서 필요하다고 느낄 때만 AI 힌트를 선택적으로 볼 수 있습니다.
+        </p>
+      </header>
+
+      <section id="intro" class="card">
+        <h2>참가자 정보</h2>
+        <label class="field">
+          참가자 ID
+          <input id="participantId" type="text" placeholder="예: P-001" required />
+        </label>
+        <button id="startBtn" class="primary">시작하기</button>
+        <p class="note">힌트는 기본적으로 닫혀 있으며, 참가자의 선택 없이는 표시되지 않습니다.</p>
+      </section>
+
+      <section id="trial" class="card hidden">
+        <div class="trial-meta">
+          <span id="conditionLabel"></span>
+          <span id="trialIndex"></span>
+        </div>
+        <h2 id="question"></h2>
+        <div id="options" class="options"></div>
+
+        <div class="hint-panel">
+          <button id="hintToggle" class="secondary">AI 힌트 보기</button>
+          <div id="hintLevels" class="hint-levels hidden">
+            <div class="hint-buttons">
+              <button class="hint-btn" data-level="1">1단계</button>
+              <button class="hint-btn" data-level="2" disabled>2단계</button>
+              <button class="hint-btn" data-level="3" disabled>3단계</button>
+            </div>
+            <div id="hintContent" class="hint-content"></div>
+          </div>
+        </div>
+
+        <button id="submitBtn" class="primary">정답 제출</button>
+        <button id="finishEarlyBtn" class="secondary">실험 종료 및 CSV 보기</button>
+        <p id="feedback" class="feedback"></p>
+      </section>
+
+      <section id="complete" class="card hidden">
+        <h2>응답 완료</h2>
+        <p>참여해 주셔서 감사합니다. 아래 버튼을 눌러 CSV 데이터를 다운로드할 수 있습니다.</p>
+        <p class="note">미리보기는 완료 직후 자동 생성되며, 필요하면 버튼을 다시 눌러 갱신할 수 있습니다.</p>
+        <button id="downloadBtn" class="primary">CSV 다운로드</button>
+        <h3 class="csv-title">CSV 미리보기</h3>
+        <pre id="csvPreview" class="csv-preview"></pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
