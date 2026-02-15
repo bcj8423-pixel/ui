@@ -1,0 +1,137 @@
+studies:
+  study1:
+    title: "연구 1: 접근 동기 경로 기본 검증"
+    total_n: 136
+    sessions: 1
+    conditions:
+      - id: s1_interactive_ai
+        label: "상호작용 AI"
+      - id: s1_control
+        label: "AI 미사용 통제"
+    stage_flow: [baseline, manipulation, platform]
+    stage_items:
+      baseline: 6
+      manipulation: 10
+      transfer: 0
+      platform: 10
+    primary_dv:
+      - t1_competence_need_satisfaction
+    secondary_dv:
+      - ai_call_count
+      - first_ai_latency_ms
+      - no_ai_completion_rate
+    covariates:
+      - baseline_score
+      - snail_total
+      - nfc_total
+    randomization:
+      type: block
+      block_size: 4
+      ratio: [1, 1]
+
+  study2:
+    title: "연구 2: 착각 형성 및 상호작용 고유효과"
+    total_n: 252
+    sessions: 1
+    conditions:
+      - id: s2_interactive_ai
+        label: "상호작용 AI"
+      - id: s2_static_ai
+        label: "정적 AI 정보"
+      - id: s2_control
+        label: "AI 미사용 통제"
+    stage_flow: [baseline, manipulation, prediction_transfer, platform]
+    stage_items:
+      baseline: 6
+      manipulation: 10
+      transfer: 10
+      platform: 10
+    computed_variables:
+      illusion_score: "transfer_predicted_score - transfer_actual_score"
+    primary_dv:
+      - illusion_score
+    secondary_dv:
+      - ai_call_count
+      - first_ai_latency_ms
+      - no_ai_completion_rate
+      - t1_competence_need_satisfaction
+      - t2_competence_need_frustration
+    covariates:
+      - baseline_score
+      - snail_total
+      - nfc_total
+    randomization:
+      type: block
+      block_size: 6
+      ratio: [1, 1, 1]
+
+  study3:
+    title: "연구 3: 1주 후 잔여효과"
+    total_n: 234
+    sessions: 2
+    session_interval_days: 7
+    conditions:
+      - id: s3_interactive_ai
+        label: "상호작용 AI"
+      - id: s3_control
+        label: "AI 미사용 통제"
+    session1_flow: [baseline, manipulation, t1_measure, future_prediction]
+    session2_flow: [prediction_transfer, t2_measure, platform]
+    stage_items:
+      baseline: 6
+      manipulation: 10
+      transfer: 10
+      platform: 10
+    computed_variables:
+      session2_illusion_score: "session2_transfer_predicted - session2_transfer_actual"
+    primary_dv:
+      - session2_illusion_score
+    secondary_dv:
+      - ai_call_count
+      - first_ai_latency_ms
+      - no_ai_completion_rate
+    covariates:
+      - baseline_score
+      - weekly_ai_use_frequency
+      - snail_total
+      - nfc_total
+    randomization:
+      type: block
+      block_size: 4
+      ratio: [1, 1]
+
+  study4:
+    title: "연구 4: 착각→의존 인과 검증"
+    total_n: 210
+    sessions: 1
+    conditions:
+      - id: s4_correction
+        label: "사전 보정 피드백"
+      - id: s4_control
+        label: "사전 중립 피드백"
+    pretask:
+      task: "CRT mini quiz"
+      items: 6
+      estimate_required: true
+    stage_flow: [pretask, manipulation, prediction_transfer, platform]
+    stage_items:
+      manipulation: 10
+      transfer: 10
+      platform: 10
+    computed_variables:
+      illusion_score: "transfer_predicted_score - transfer_actual_score"
+    primary_dv:
+      - illusion_score
+    secondary_dv:
+      - ai_call_count
+      - first_ai_latency_ms
+      - no_ai_completion_rate
+    covariates:
+      - crt_actual_score
+      - snail_total
+      - nfc_total
+      - post_feedback_negative_affect
+    randomization:
+      type: block
+      block_size: 6
+      ratio: [1, 1]

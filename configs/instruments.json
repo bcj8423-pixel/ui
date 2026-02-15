@@ -1,0 +1,30 @@
+{
+  "bpnsfs_competence": {
+    "timepoints": ["T1", "T2"],
+    "satisfaction_items": 4,
+    "frustration_items": 4,
+    "randomize_item_order_each_timepoint": true,
+    "scale": "1-5"
+  },
+  "snail_ai_literacy": {
+    "measure_time": "pre",
+    "score": "sum_or_mean"
+  },
+  "nfc_short": {
+    "measure_time": "pre",
+    "score": "sum_or_mean"
+  },
+  "matrix_reasoning_short": {
+    "measure_time": "pre",
+    "purpose": "baseline cognitive ability"
+  },
+  "crt_mini_pre_correction": {
+    "used_in": ["study4"],
+    "items": 6,
+    "post_estimate_question": "방금 6문항 중 몇 문항을 맞혔다고 생각합니까?",
+    "feedback_modes": {
+      "correction": "estimate-vs-actual discrepancy feedback",
+      "control": "neutral completion/time feedback"
+    }
+  }
+}
